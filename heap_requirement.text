@@ -1,0 +1,16 @@
+This article explains the heap data structure and provides a sample implementation using C++.
+Heap is a binary tree that stores priorities (or priority-element pairs) at the nodes.
+It has the following properties:
+All levels except last level are full. Last level is left filled.
+Priority of a node is at-least as large as that of its parent (min-heap) (or) vice-versa (max-heap).
+If the smallest element is in the root node, it results in a min-heap.
+If the largest element is in the root node, it results in a max-heap.
+A heap can be thought of as a priority queue. The most important node will always be at the root of the tree.
+Heaps can also be used to sort data, heap sort.
+The two most interesting operations in a heap is heapifyup and heapifydown.
+Heapify-up (assumption min-heap)
+Used to add a node to the heap. To add a node, it is inserted at the last empty space and heapifyup process is done.
+When a node is added, its key is compared to its parent. If parent key is smaller than the current node it is swapped. The process is repeated till the heap property is met.
+Heapify-down
+Used during removal of a node. When a node is removed which is always the root (lowest in priority) the last available node in heap is replaced as the root and heapifydown process is done.
+The key of parent node is compared with the children. If any of the children have lower priority it is swapped with the parent. The process is repeated for the newly swapped node till the heap property is met.

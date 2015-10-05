@@ -40,7 +40,7 @@ int main()
     myQueue.insert(3);
     myQueue.insert(4);
     myQueue.insert(2);
-    myQueue.insert(1);
     myQueue.insert(100);
+    myQueue.insert(1);
     cout<<myQueue.getmax();
 }

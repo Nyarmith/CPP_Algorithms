@@ -24,9 +24,10 @@ struct linkedPt{
     //which axis do I push you along?
     if ( pt->x == x){
       if (pt->y > y){
-        if ( up == NULL )
+        if ( up == NULL ){
+          pt->down = this;
           up = pt;
-        else if (up->y > pt->y){
+        }else if (up->y > pt->y){
           pt->up = up;
           pt->down = this;
           up->down = pt;
@@ -36,9 +37,10 @@ struct linkedPt{
           up->propogate(pt);
         }
       } else {
-        if ( down == NULL )
+        if ( down == NULL ){
+          pt->up = this;
           down = pt;
-        else if (down->y < pt->y){
+        }else if (down->y < pt->y){
           pt->up=this;
           pt->down=down;
           down->up = pt;
@@ -50,6 +52,7 @@ struct linkedPt{
     } else if (pt->y == y){
       if (pt->x > x){
         if (right == NULL){
+          pt->left = this;
           right = pt;
         } else if (right->x > pt->x){
           pt->right = right;
@@ -61,9 +64,10 @@ struct linkedPt{
           right->propogate(pt);
         }
       } else {
-        if (left == NULL)
+        if (left == NULL){
+          pt->right = this;
           left = pt;
-        else if (left->x < pt->x){
+        }else if (left->x < pt->x){
           pt->left=left;
           pt->right=this;
           left->right=pt;

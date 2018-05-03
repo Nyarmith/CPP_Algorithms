@@ -10,8 +10,7 @@ Problem 30 has a pretty cool index-sort mapping that I should be able to impleme
 
 Problem 32 could be sped-up via more modular trix.
 
+Problem 33 is pretty novel, but could be done nicer with maps/sets
+
 Problem 37 has a cool macro PRIu64 from \<cinttypes\> I didn't know about before for reading uint64\_t types
 
-
-Incomplete Problems:
-* 33

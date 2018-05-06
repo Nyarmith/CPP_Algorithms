@@ -23,3 +23,6 @@ Problem 43 is trivial, but demonstated nice use of reverse iterator+auto
 Problem 61 is like two separate weaker problems combines in one, but I actually had to memoize!!
 
 62 and 63 are hard, which makes them good.
+
+
+Problem 8 was mega-trivial but my solution is a bit clever/nice

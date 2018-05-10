@@ -20,6 +20,8 @@ Problem 40 has a simple solution but a bit of thought to get there.
 
 Problem 43 is trivial, but demonstated nice use of reverse iterator+auto
 
+Problem 49 let me use c++11 regex for like the second time
+
 Problem 61 is like two separate weaker problems combines in one, but I actually had to memoize!!
 
 62 and 63 are hard, which makes them good.

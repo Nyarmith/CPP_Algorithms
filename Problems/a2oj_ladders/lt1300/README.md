@@ -28,3 +28,5 @@ Problem 61 is like two separate weaker problems combines in one, but I actually 
 
 
 Problem 8 was mega-trivial but my solution is a bit clever/nice
+
+Problem 55 permanently running on test 4.

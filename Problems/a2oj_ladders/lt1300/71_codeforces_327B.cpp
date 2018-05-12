@@ -6,16 +6,25 @@
 #include <iterator>
 #include <iostream>
 
+#define PRIMELIM 1300000
+bool primz[ PRIMELIM ];
+
 //sieve of eratosthenes
-void makePrimes(int n, std::vector<int> &vec){
+void printPrimes(int n){
+  int nt=0;
+  for (int i=2; i< PRIMELIM && nt<n; ++i){
+    if (!primz[i]){
+      std::printf("%i ",i);
+      ++nt;
+      for (int k=i+i; k < PRIMELIM; k += i){
+        primz[k] = true;
+      }
+    }
+  }
 }
 
 int main(){
   int n;
-  std::vector<int> vec;
-  vec.reserve(100000);
   std::scanf("%i",&n);
-  makePrimes(n,vec);
-  std::copy(vec.begin(),vec.end(),
-      std::ostream_iterator<int>(std::cout," "));
+  printPrimes(n);
 }

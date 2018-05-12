@@ -30,3 +30,5 @@ Problem 61 is like two separate weaker problems combines in one, but I actually 
 Problem 8 was mega-trivial but my solution is a bit clever/nice
 
 Problem 55 permanently running on test 4.
+
+Problem 51 is important for hammering in the equivalence of two basic concepts.

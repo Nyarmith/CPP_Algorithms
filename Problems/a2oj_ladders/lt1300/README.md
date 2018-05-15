@@ -37,3 +37,4 @@ I feel like I should do 71 in a more elegant way.
 
 Problems 54 and 74 demonstrate cool use of iterators.
 
+Problem 76 has some min_element and max_element stuff.

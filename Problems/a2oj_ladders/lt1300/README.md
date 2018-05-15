@@ -32,6 +32,7 @@ Problem 55 permanently running on test 4.
 
 Problem 51 is important for hammering in the equivalence of two basic concepts.
 
+Problem 55 is very open-ended for mega-clever soltuions
 
 I feel like I should do 71 in a more elegant way.
 

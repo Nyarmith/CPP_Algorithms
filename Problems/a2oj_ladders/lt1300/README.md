@@ -8,6 +8,8 @@ Problem 7 could be sped up by starting the [de]capitalization process as soon as
 
 Problem 12 has some cool bitset operations w/ a string constructor!!
 
+The improv DS in 24 is a good type to follow and could be generalized for way more contest probs
+
 Problem 30 has a pretty cool index-sort mapping that I should be able to implement myself(also record separately maybe in utility algorithm section)
 
 Problem 32 could be sped-up via more modular trix.
@@ -21,6 +23,8 @@ Problem 40 has a simple solution but a bit of thought to get there.
 Problem 43 is trivial, but demonstated nice use of reverse iterator+auto
 
 Problem 49 let me use c++11 regex for like the second time
+
+Problem 56 has cool use of priority queue with pair type
 
 Problem 61 is like two separate weaker problems combines in one, but I actually had to memoize!!
 
@@ -39,3 +43,5 @@ I feel like I should do 71 in a more elegant way.
 Problems 54 and 74 demonstrate cool use of iterators.
 
 Problem 76 has some min_element and max_element stuff.
+
+Problem 79 demonstrates a creative method of reading a digit at a time.

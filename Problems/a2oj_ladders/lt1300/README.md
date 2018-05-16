@@ -45,3 +45,9 @@ Problems 54 and 74 demonstrate cool use of iterators.
 Problem 76 has some min_element and max_element stuff.
 
 Problem 79 demonstrates a creative method of reading a digit at a time.
+
+For problem 80 I get a cool WA: 
+```
+Can't find file C:\Contesters\Work\invoker-prod\work\codeforces5\b4d356025cd4569b0bf626e0e819f0b5\check-a03d7e8ebea493e0128fd2969bc403b8\run\output.txt [invokerId=b6b7def3068942dc63d65903a9b6d25a, location=3232047279] (1).
+```
+

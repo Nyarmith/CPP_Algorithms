@@ -5,8 +5,10 @@
 #include <algorithm>
 
 int main(){
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
   int B, G;
-  std::scanf("%i %i", &G, &B);
+  std::cin >> B >> G;
   int reps = std::min(B,G);
   B -= reps;
   G -= reps;

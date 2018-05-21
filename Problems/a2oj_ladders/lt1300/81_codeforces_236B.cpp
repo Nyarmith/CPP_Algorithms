@@ -12,13 +12,22 @@ int divs[10000001];
 
 int d(int n){
   if (divs[n] != -1)
-    return divs[n] + 1;
-  divs[n] = 0;
-  for (int i=2; i<=n; ++i){
-    if (n % i == 0)
-      ++divs[n];
+    return divs[n];
+  divs[n] = 1;
+  int i;
+  int upper=n/2+1;
+  for (i=2; i<upper; ++i){
+    if (n % i == 0){
+      if (n/i != i)
+        divs[n] += 2;
+      else 
+        ++divs[n];
+      upper   = n/i;
+    }
   }
-  return divs[n] + 1;
+  if (i != n)
+    ++divs[n];
+  return divs[n];
 }
 
 uint64_t sumN(uint64_t n){
@@ -26,10 +35,12 @@ uint64_t sumN(uint64_t n){
 }
 
 int main(){
-  std::fill(divs,divs+101,-1);
+  std::fill(divs,divs+10000001,-1);
   divs[0] = 0;
-  divs[1] = 0;
-  divs[2] = 1;
+  divs[1] = 1;
+  divs[2] = 2;
+  divs[3] = 2;
+  divs[4] = 3;
   uint64_t a,b,c;
   uint64_t sum=0;
   std::cin >> a >> b >> c;

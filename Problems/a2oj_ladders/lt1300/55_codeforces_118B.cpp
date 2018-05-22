@@ -25,15 +25,17 @@ int main(){
   int n;
   std::scanf("%i", &n);
   //if this works that's magic
-  vvi vec(n*2+1,std::vector<int>(n*2+1,-1));
+  vvi vec(n*2+1,std::vector<int>(n*2+1,-1)); //this is magic
   grow_out(n, n, n, n, vec);
   for (int y=0; y<2*n+1; ++y){
     int bound = n + (n-std::abs(y-n));
     for (int x=0; x<=bound; ++x){
       if (vec[y][x] == -1)
         std::printf("  ");
-      else
+      else if (x != bound)
         std::printf("%i ",vec[y][x]);
+      else
+        std::printf("0");
     }
     std::printf("\n");
   }

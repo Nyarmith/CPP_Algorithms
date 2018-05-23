@@ -53,4 +53,10 @@ For problem 80(and presumably other similar problems), you have to add
 ```
 at the beginning to read/write from a file instead of normal stdin/out streams
 
-Incomplete problems: 86, 82, 89
+86 uses comparator in pqueue but it feels sort of clunky
+
+89 is an approach I should think about more often.
+
+Problem 90's range-trick is very powerful.
+
+

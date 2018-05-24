@@ -59,4 +59,5 @@ at the beginning to read/write from a file instead of normal stdin/out streams
 
 Problem 90's range-trick is very powerful.
 
+The difficulty in problem 91 was, yet again, reading comprehension.
 

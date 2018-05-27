@@ -62,3 +62,7 @@ Problem 90's range-trick is very powerful.
 The difficulty in problem 91 was, yet again, reading comprehension.
 
 I'm pretty proud of 93, with the main lesson being the care with which to merge regions and the assumption of keeping vs. merging, also always checking for being at the end in a state-machine while-loop. Cool prob! (lots of trivial errors in the process though, hoi polloi!)
+
+95 has a pretty bad solution but it worked anyway. Potentially revise in future.
+
+Holy crap, problem 100 is super fast!

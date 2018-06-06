@@ -9,3 +9,6 @@ Fun Fact: 90% of time-wastes is due to poor reading comprehension
 Soln for 83 should not have passed
 
 I liked num 85's callback
+
+I'm vvvvvv. happy about the entire process involved in solving prob. 86
+

@@ -6,6 +6,7 @@ int main(){
   std::vector<int> s1, s2, s3;
   int n, tmp;
   std::cin >> n;
+
   for (int i=0; i<n; ++i){
     std::cin >> tmp;
  if (tmp > 0)
@@ -15,10 +16,16 @@ int main(){
  else
    s3.push_back(tmp);
   }
+
+  std::cout << s1.size() << " ";
   std::copy(s1.begin(), s1.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << "\n";
+
+  std::cout << s2.size() << " ";
   std::copy(s2.begin(), s2.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << "\n";
+
+  std::cout << s3.size() << " ";
   std::copy(s3.begin(), s3.end(), std::ostream_iterator<int>(std::cout, " "));
   std::cout << "\n";
 }

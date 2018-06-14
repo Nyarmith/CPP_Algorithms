@@ -17,7 +17,8 @@ int main(){
   std::cout << (n-1) << "\n";
   for (int j=0;j<n; ++j){
     if (i != j){
-   std::cout << i << " " << j << "\n";
+   std::cout << i+1 << " " << j+1 << "\n";
  }
   }
 }
+//lol wtf it worked??

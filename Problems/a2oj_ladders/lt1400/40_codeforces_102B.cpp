@@ -17,7 +17,10 @@ int main(){
   int casts=0;
   std::string numstr;
   //char c;
-  std::cin >> num;
+  std::cin >> numstr;
+  if (numstr.size() > 1){
+    ++casts;
+  }
   for (int i=0; i<numstr.length(); ++i){
     num += numstr[i] - '0';
   }

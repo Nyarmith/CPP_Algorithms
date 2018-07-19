@@ -35,7 +35,7 @@ ll numTotalPaths(ll n, ll k, ll d, bool sat){
       for (ll i=1; i<=k; ++i){
         ret += numTotalPaths(n-i, k, d, sat || (i >= d));
       }
-      memo[key] = ret;
+      memo[key] = ret % 1000000007;
       return ret;
     }
   }
@@ -47,8 +47,8 @@ int main(){
   std::cin >> n >> k >> d;
 
   for (ll i=1; i<=k; ++i){
-    out += numTotalPaths(n-i, k, d, d<=i);
+    out += numTotalPaths(n-i, k, d, d<=i) % 1000000007;
   }
 
-  std::cout << out;
+  std::cout << out % 1000000007;
 }

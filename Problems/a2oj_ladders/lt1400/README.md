@@ -12,3 +12,5 @@ I liked num 85's callback
 
 I'm vvvvvv. happy about the entire process involved in solving prob. 86
 
+
+96 not working

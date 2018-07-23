@@ -35,6 +35,7 @@ int main(){
   int64_t n,m,k,tmp;
   std::cin >> n >> m >> k;
   p.reserve(n);
+  memo.reserve(n);
   for (int64_t i=0; i<n; ++i){
     std::cin >> tmp;
     p.push_back(tmp);

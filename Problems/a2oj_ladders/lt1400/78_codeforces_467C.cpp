@@ -2,45 +2,76 @@
 #include <cstdint>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <utility>
 #include <map>
 
-std::map<std::pair<int64_t,int64_t>,int64_t> memo;
+const int NSIZE = 5000;
 
-int64_t maxPick(std::vector<int64_t>& p, int64_t m, int64_t k, int64_t l){
-  if (k == 0 || (int)p.size()-l < m)
+//memoization globals
+uint64_t memo[NSIZE][NSIZE];
+bool     calculated[NSIZE][NSIZE];
+
+uint64_t maxPick(std::vector<uint64_t> &s, int p, int m, int k){
+
+  if (k == 0 || p + k*m > s.size())
     return 0;
 
-  std::pair<int64_t,int64_t> key = std::make_pair(k,l);
-  int64_t maxSum=0;
-  if (memo.find(key) == memo.end()){
+  if (calculated[p][k])
+    return memo[p][k];
 
-    for (uint32_t i=l; i<p.size()-k*m+1; ++i){
-      int64_t thisSum=0;
-      for(uint32_t j=0; j<m; ++j){
-        thisSum += p[i+j];
-      }
-      thisSum += maxPick(p,m,k-1,i+m);
-      if (thisSum > maxSum)
-        maxSum = thisSum;
-    }
-    memo[key]=maxSum;
-  }
+  uint64_t res = std::max( maxPick(s, p+1, m, k),
+                    s[p] + maxPick(s, p+m, m, k-1) );
 
-  return memo[key];
+  memo[p][k] = res;
+  calculated[p][k] = true;
+  return res;
 }
 
 int main(){
-  std::vector<int64_t> p;
-  int64_t n,m,k,tmp;
+  std::vector<uint64_t> p;
+  std::vector<uint64_t> s;
+
+  uint64_t n,m,k; //params: n - number of elements, m - subarray size, k - # of subarrays to pick
+  uint64_t tmp;
   std::cin >> n >> m >> k;
-  p.reserve(n);
-  for (int64_t i=0; i<n; ++i){
+  //we prepare memory in advance
+  p.reserve(n); //the elements
+  s.reserve(n-m+1); //the number of all possible subarrays
+  uint64_t sum=0;
+
+  //populate array
+  for (int i=0; i<n; ++i){
     std::cin >> tmp;
     p.push_back(tmp);
   }
 
-  int64_t max = maxPick(p,m,k,0);
+  //computing the first sum
+  int i=0;
+  while (i < m)
+  {
+    sum += p[i];
+    ++i;
+  }
+  s.push_back(sum);
+
+  //computing all other subarray sums
+  while (i<n)
+  {
+    sum += p[i];
+    sum -= p[i-m]; //old subarray elem
+    ++i;
+    s.push_back(sum);
+  }
+
+  uint64_t max;
+
+  ////super special case where we just sum the entire set
+  if (m == 1 && k == s.size())
+    max = std::accumulate(s.begin(), s.end(), static_cast<uint64_t>(0));
+  else
+    max = maxPick(s,0,m,k);
 
   std::cout << max;
 }
+

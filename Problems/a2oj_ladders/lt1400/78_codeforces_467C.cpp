@@ -14,7 +14,7 @@ bool     calculated[NSIZE][NSIZE];
 
 uint64_t maxPick(std::vector<uint64_t> &s, int p, int m, int k){
 
-  if (k == 0 || p + k*m > s.size())
+  if (k <= 0 || static_cast<size_t>(p+(k-1)*m) > s.size())
     return 0;
 
   if (calculated[p][k])
@@ -35,7 +35,6 @@ int main(){
   uint64_t n,m,k; //params: n - number of elements, m - subarray size, k - # of subarrays to pick
   uint64_t tmp;
   std::cin >> n >> m >> k;
-<<<<<<< HEAD
   //we prepare memory in advance
   p.reserve(n); //the elements
   s.reserve(n-m+1); //the number of all possible subarrays
@@ -43,11 +42,6 @@ int main(){
 
   //populate array
   for (int i=0; i<n; ++i){
-=======
-  p.reserve(n);
-  memo.reserve(n);
-  for (int64_t i=0; i<n; ++i){
->>>>>>> c8f7fe16a3ca92f0d40400310c754f4797191529
     std::cin >> tmp;
     p.push_back(tmp);
   }
@@ -62,7 +56,7 @@ int main(){
   s.push_back(sum);
 
   //computing all other subarray sums
-  while (i<n)
+  while (i < n)
   {
     sum += p[i];
     sum -= p[i-m]; //old subarray elem

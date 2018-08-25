@@ -96,36 +96,23 @@ int main(){
   std::cin >> a >> b
            >> c >> d;
 
-  // step 1, simplify with gcd
-  ll m = gcd(a,b);
-  a /= m;
-  b /= m;
+  Ratio A{a}, B{b}, C{c}, D{d};
 
-  m = gcd(c,d);
-  c /= m;
-  d /= m;
-
-  //recall: lcm = (a*b)/gcd(a,b)
+  Ratio r1{c,a}, r2{d,b};
 
 
-  Ratio ret{1};
-
-  //we can break this down into 4 trivial cases
-  if ( a <= c && b <= d) {
-    //both must be scaled up by either c/a or d/b
-    Ratio r1{c,a}, r2{d,b};
-    if (r1*b <= d){
-    }
-
-  } else if (a <= c && b > d) {
-    //scale both down by d/b
-
-  } else if (a > c && b <= d) {
-    //scale both down by c/a
-
-  } else { //a>c && b>d
-    //both must be scaled down by either c/a or d/b
-
+  std::string ret = "";
+  //try 1
+  if (Ratio{a,b} == Ratio{c,d}){
+    ret = "0/1";
+  } else if (B*r1 <= D){
+    Ratio remainder = Ratio{1} - Ratio{(B*r1)/D};
+    ret = std::to_string(remainder.num) + "/" + std::to_string(remainder.den);
+  } else if (A*r2 <= C){
+    Ratio remainder = Ratio{1} - Ratio{(A*r2)/C};
+    ret = std::to_string(remainder.num) + "/" + std::to_string(remainder.den);
   }
+
+  std::cout << ret << std::endl;
 }
 

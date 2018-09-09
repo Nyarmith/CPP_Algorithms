@@ -26,14 +26,12 @@ int main(){
   }
 
   ll maxSeq=0;
-  for (int i=1; i + maxSeq <= n; ++i){
-    ll sum = bookSum[i+maxSeq] - bookSum[i-1];
+  for (int i=1; i+maxSeq-1 <= n; ++i){
+    ll sum = bookSum[i+maxSeq-1] - bookSum[i-1];
 
-    while (sum < t && i+maxSeq+1 <= n){
-      if (bookSum[i+maxSeq+1] - bookSum[i-1] <= t){
-        maxSeq++;
-        sum = bookSum[i+maxSeq+1] - bookSum[i-1];
-      }
+    while (i+maxSeq <= n && bookSum[i+maxSeq] - bookSum[i-1] <= t){
+      sum = bookSum[i+maxSeq] - bookSum[i-1];
+      ++maxSeq;
     }
   }
 

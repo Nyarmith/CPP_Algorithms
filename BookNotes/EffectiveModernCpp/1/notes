@@ -1,0 +1,10 @@
+# Focal Concepts of Modern C++
+- Move-semantics
+    - Based on distinguishing rvalues & lvalues
+    - rvalues indicate objects eligible for move operations
+    - lvalues don't (generally)
+- rvalue := temporary objects returned from functions
+- lvalue := objects you can refer to by name, ptr or lvalue-reference
+
+- && = rvalue reference
+- move construction/assignment != cop construction/assignment

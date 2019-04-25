@@ -43,17 +43,3 @@ Designing and declaring good c++ interfaces
 - side-note: _pimpl_ represent!
 - Never try to specialize something already defined in std
 
-# Item 26 - Postpone variable definitions as long as possible
-- Or, don't prematurely define variable
-- This also makes it clear what part of the code it's relevant to
-- Increases clarity and efficiency
-
-# Item 27 - Minimize casting
-- Casting cheats past the safety that the type system is trying to create
-- Leads to code that is executed at run-time, which is less potentially performant as well
-- When casting is necessary, try to hide it inside a function
-- Don't use C-style casts in C++ pls
-
-# Item 28 - Avoid returning "handles" to object internals
-- handle := references, pointers, iterators
-- otherwise, you violate const-ness (very sad)

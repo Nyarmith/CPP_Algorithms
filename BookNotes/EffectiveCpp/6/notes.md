@@ -30,4 +30,13 @@ non-virtual-function = "interface and implementation must be inherited"
 - really selling us on the NVI
 
 # Item 38: Model"has-a" or "is-implemented-in-terms-of" through composition
-- 
+- Already known
+
+# Item 39: Use private inheritance judiciously
+- You can't cast something to its privately inherited base type
+- Private inheritance means "is implemented in terms of" and should only be used when composition can't be used
+
+# Item 40: Use multiple inheritance judiciously
+- Multiple inheritance is only useful for combining multiple pure virtual classes (i.e. pure interfaces) and for inheriting privately the implementation, then publicly inheriting the interface, and gluing them together in the class
+- By default MI duplicates the data (to mitigate the diamond inheritance problem), but data de-duplication is supported
+- Generally, avoid

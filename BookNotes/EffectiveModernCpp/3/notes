@@ -1,0 +1,20 @@
+# Moving to Modern C++
+
+## 7 - Distinguish between () and {} when creating objects
+* "Uniform Initialization"
+* Braced initializer makes you immune to vexing parse (oops I'm a fn)
+* Braced initializer, expectedly, matches to std::initializer_list c-tor first
+* Empty braces then mean an initializer list w/o values, not the default ctor
+* From a design perspective, you then have to consider parens and braces within creation of objects in templated functions
+
+## 8 Prefer nullptr to 0 and NULL
+* nullptr doesn't have an integral type and cant be converted to anything other than ptr types
+
+## 9 - Prefer alias declarations to typedefs
+* `using myAlias=some::type` is nice and scoped
+* Avoids typename in templates
+* Type traits are a thing
+
+## 10 - Prefer scoped enums to unscoped enums
+* Use `enum class` instead of just `enum` to avoid leaking symbols
+* Scoped enums default to int

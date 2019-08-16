@@ -1,5 +1,5 @@
 # Lambda Expressions
-- Make `std::algorithm`
+- Make `std::algorithm` great again
 
 ## 31 - Avoid Default Capture Modes
 - Default by-reference capture can lead to dangling references, and default by-values can lead to dangling pointers

@@ -1,63 +1,117 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
-template <class T> struct node
+template <class K, class V>
+struct HashNode
 {
-    node<T>* prev;
-    T data;
+    K key;
+    V val;
 };
 
-template <class T> class stack
+template <class K, class V>
+class HashTable
 {
-    public:
-        stack<T>();
-        //POST: Default stack object constructed with top initialized to null
+public:
+    using Node=HashNode<K,V>;
 
-        void push(T value);
-        //PRE: value is initialized
-        //POST: value will be pushed to the top of a stack
+    HashTable(unsigned capacity): cap_(capacity)
+    {
+        arr_ = new Node*[cap_];
+        for (unsigned i=0; i<cap_; ++i)
+            arr_[i] = nullptr;
+    }
 
-        T pop();
-        //PRE: Stack is not empty
-        //POST: Top value is removed form stack and returned
+    HashTable() : HashTable(defaultSize_) {}
 
-    private:
-        node<T>* top;
+    void Insert(K key, V val)
+    {
+        auto i = hash(key);
+        auto j=i;
+        Node *tmp = new Node{key,val};
+        while(arr_[i] != nullptr && arr_[i]->key != key)
+        {
+            ++i;
+            i %= cap_;
+            if (i == j) throw std::runtime_error("hashtable full!");
+        }
+        
+        if(arr_[i] == nullptr)
+            ++size_;
+
+        arr_[i] = tmp;
+    }
+    
+    V remove(unsigned key)
+    {
+        auto i = hash(key);
+        while(arr_[i])
+        {
+            if(arr_[i]->key == key)
+            {
+                V tmp = arr_[i]->val;
+                delete arr_[i];
+                arr_[i] = nullptr;
+                --size_;
+                return tmp;
+            }
+            ++i;
+            i %= cap_;
+        }
+        return {};
+    }
+
+    V get(K key)
+    {
+        auto i = hash(key);
+        unsigned ctr = 0;
+
+        while(arr_[i])
+        {
+            if (ctr++ > cap_) return {};
+
+            if (arr_[i]->key == key)
+                return arr_[i]->val;
+            ++i;
+            i %= cap_;
+        }
+        return {};
+    }
+
+    template<class I, class J>
+    friend std::ostream& operator<<(std::ostream  &os, const HashTable<I,J> &dt);
+private:
+    static constexpr unsigned defaultSize_ = 20;
+    unsigned hash(K key) { return key % cap_; }
+
+    Node **arr_;
+    unsigned cap_;
+    unsigned size_;
 };
 
-template <class T>
-stack<T>::stack()
+template<class K, class V>
+std::ostream& operator<<(std::ostream &os, const HashTable<K,V> &dt)
 {
-    top = NULL;
-}
-
-template <class T>
-void stack<T>::push(T value)
-{
-    node<T>* temp = new node<T>;
-    temp->data = value;
-    temp->prev = top;
-    top = temp;
-}
-
-
-template <class T>
-T stack<T>::pop()
-{
-    T  temp = top -> data;
-    top = top -> prev;
-    return temp;
+    for (unsigned i=0; i<dt.cap_; ++i)
+    {
+        if (i != 0)
+            os << ", ";
+        os << i << ":" << (dt.arr_[i] == nullptr ? 0 : dt.arr_[i]->val);
+    }
+    os << "\n";
+    return os;
 }
 
 int main()
 {
-    stack<int> myStack;
-    myStack.push(2);
-    myStack.push(4);
-    myStack.push(5);
-    myStack.push(12);
-
-    std::cout<<myStack.pop();
-    std::cout<<myStack.pop();
-    std::cout<<myStack.pop();
+    HashTable<int,int> ht;
+    ht.Insert(1,2);
+    ht.Insert(18,19);
+    std::cout << ht << "\n";
+    ht.Insert(20,21);
+    ht.Insert(21,22);
+    std::cout << ht << "\n";
+    std::cout << "removed: " << ht.remove(1) << "\n";
+    std::cout << ht << "\n";
+    std::cout << "get: " << ht.get(18) << "\n";
 }
